@@ -142,8 +142,7 @@ int main(){
 {% raw %}
 ```cpp
 map<int, int> m;
-  m[n]++; //map m에서 key = n인 원소의 value++ or 만약 key = n인 원소 없으면 생성 후. 
-  0 + 1 = 1을 value로 입력
+  m[n]++; //map m에서 key = n인 원소의 value++ or 만약 key = n인 원소 없으면 생성 후. 0 + 1 = 1을 value로 입력
   m[n] = 1; //map m에서 key = n인 원소의 value = 1 or 만약 없으면 생성후 1을 value로 입력
   m.count(a); //a있으면 1, 없으면 0 반환
 ```
