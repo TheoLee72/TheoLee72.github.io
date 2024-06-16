@@ -51,14 +51,16 @@ int main ()
 
 ## fast input
 ```cpp
-    std::ios::sync_with_stdio(false);
-    std::cin.tie(0);
+    using namespace std;
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
     //이렇게 하면 c언어의 scanf와의 연결을 끊어서 입력을 더욱 빠르게 받을 수 있다. 
 ```
 
 ## array (길이가 정해진 배열)
 ```cpp
     int alphaArray[26] = {0, }; //0으로 초기화
+    int graph[100][100] = {0, }; //2차원 배열도 가능
 ```
 
 ```cpp
@@ -108,3 +110,40 @@ int main ()
     q.pop();
     cout << q.front();  //20
 ```
+
+## priority queue, 역방향 priority queue
+{% raw %}
+```
+#include <queue>
+using namespace std;
+int main(){
+  priority_queue<int> pq; //정방향 우선순위 큐
+  priority_queue<int, vector<int>, greater<int>> pq2; //역방향 우선순위 큐
+
+  //그리고 우선순위 큐도 중복가능하다.
+  pq.push(1);
+  pq.push(2);
+  pq.push(3);
+  pq.push(3);
+  pq.push(3);
+  while(!pq.empty()){
+    cout << pq.top() << " ";
+    pq.pop();
+  }
+  //3 3 3 2 1
+
+}
+
+```
+{% endraw %}
+
+## map
+{% raw %}
+```
+map<int, int> m;
+  m[n]++; //map m에서 key = n인 원소의 value++ or 만약 key = n인 원소 없으면 생성 후 0 + 1 = 1을 value로 입력
+  m[n] = 1; //map m에서 key = n인 원소의 value = 1 or 만약 없으면 생성후 1을 value로 입력
+  m.count(a); //a있으면 1, 없으면 0 반환
+```
+{% endraw %}
+
