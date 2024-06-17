@@ -10,4 +10,4 @@ order: 4
 ##### 공군 정보보호병 855기 2024년 2월 입대
 
 ##### react, nextjs, typescript
-##### python, c, java
+##### python, c, cpp, java
