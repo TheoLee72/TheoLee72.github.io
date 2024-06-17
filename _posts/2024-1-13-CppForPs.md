@@ -236,3 +236,61 @@ int main(){
 ```
 {% endraw %}
 
+## dfs
+{% raw %}
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+class Graph{
+public:
+  int n;
+  vector<vector<int>> graph;
+  vector<bool> visited;
+
+  Graph(): n(0){}
+  Graph(int n): n(n){
+    graph.resize(n);
+    visited.resize(n);
+  }
+
+  void addEdge(int a, int b){
+    graph[a].push_back(b);
+    graph[b].push_back(a);
+  }
+  void sortList(){ 
+    for(int i = 0; i < n; i++)//작은 것부터 방문하기 위함
+      sort(graph[i].begin(), graph[i].end());
+  }
+  void dfs(){
+    fill(visited.begin(), visited.end(), false);
+    dfs(0);
+  }
+  int dfsAll(){
+    int count = 0;
+    fill(visited.begin(), visited.end(), false);
+    for(int i = 0; i < n; i++){
+      if(!visited[i]){
+        //i에서 dfs해서 끝나면 count++
+        dfs(i);
+        count++;
+      }
+    }
+    return count;
+  }
+private:
+  void dfs(int curr){
+    visited[curr] = true;
+    for(int next: graph[curr]){
+      //일단 끝까지 내려가야 돌아온다. 
+      //방문하면 계속 stack에 쌓이고 stack의 가장 위 원소를 뽑아 또 탐색하는 구조
+      if(!visited[next]) dfs(next);
+    }
+  }
+};
+```
+{% endraw %}
+
