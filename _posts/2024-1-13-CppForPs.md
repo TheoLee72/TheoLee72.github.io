@@ -148,3 +148,91 @@ map<int, int> m;
 ```
 {% endraw %}
 
+## bfs
+{% raw %}
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <queue>
+
+using namespace std;
+class Graph{
+  public:
+    int n;
+    vector<vector<int>> graph;
+    vector<int> distance;
+  //: n(k) 이렇게 하면 초기화 리스트라고
+  //처음부터 n을 k로 초기화 하는거다.
+  //{}안에 넣으면 default 생성자로 초기화 하고
+  //그 다음에 k로 초기화 되기 때문에 overhead발생
+  Graph(): n(0){}
+  Graph(int n): n(n){
+    graph.resize(n);
+    distance.resize(n, 0);
+  }
+
+  //n*n으로 graph만들지 않고
+  //linked list 처럼 만듦
+  void addEdge(int a, int b){
+    graph[a].push_back(b);
+    graph[b].push_back(a);
+  }
+
+  void sortList(){
+    for(int i = 0; i < n; i++){
+      sort(graph[i].begin(), graph[i].end());
+    }
+  }
+
+  void bfs(){
+    vector<int> visited(n, 0);
+    //dfs와 달리 bfs는 먼저 방문한 노드를 보니까 큐가 필요
+    queue<int> q;
+    q.push(0);
+    visited[0] = 1;
+    while(!q.empty()){
+      int cur = q.front();
+      q.pop();
+      for(int next: graph[cur]){
+        if(visited[next] == 0){
+          visited[next] = 1;
+          q.push(next);
+          //next의 부모node가 cur이다
+          distance[next] = distance[cur] + 1;
+        }
+      }
+      //visited가 2가 되는 순간 cur과 연결된 node는 다 queue에 들어간 것
+      visited[cur] = 2;
+      cout << cur << " ";
+    }
+    
+
+    
+  }
+
+};
+int main(){
+  ios::sync_with_stdio(false);
+  cin.tie(0); cout.tie(0);
+
+  Graph g(9);
+  g.addEdge(0, 1);
+  g.addEdge(0, 2);
+  g.addEdge(1, 3);
+  g.addEdge(1, 5);
+  g.addEdge(3, 4);
+  g.addEdge(4, 5);
+  g.addEdge(2, 6);
+  g.addEdge(2, 8);
+  g.addEdge(6, 7);
+  g.addEdge(6, 8);
+  g.sortList();
+  g.bfs();
+  //0 1 2 3 5 6 8 4 7
+  
+  return 0;
+}
+```
+{% endraw %}
+
