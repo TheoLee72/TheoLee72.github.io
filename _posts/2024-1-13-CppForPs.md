@@ -147,6 +147,24 @@ map<int, int> m;
   m.count(a); //a있으면 1, 없으면 0 반환
 ```
 {% endraw %}
+## unordered_map
+{% raw %}
+```cpp
+#include <iostream>
+#include <unordered_map>
+unordered_map<string, int> m2;
+  for(int i = 1; i <= n; i++){
+    string s;
+    cin >> s;
+    m2.insert({s, i}); //추가
+  }
+  while(m--){
+    string s;
+    cin >> s;
+    cout << (*m2.find(s)).second << "\n"; //값 찾으면 iterator return
+  }
+```
+{% endraw %}
 
 ## bfs
 {% raw %}
@@ -294,3 +312,10 @@ private:
 ```
 {% endraw %}
 
+## 주어진 문자열이 수인지 진짜 문자열인지 판별
+{% raw %}
+```cpp
+  atoi(s.c_str()) //s가 문자열이면 0 수이면 그 수를 return
+                  //그 수가 0인 경우가 있기 때문에 완벽히 하려한다면 == '0' 판단 먼저
+```
+{% endraw %}
