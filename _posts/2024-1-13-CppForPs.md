@@ -60,7 +60,6 @@ int main ()
 ## array (길이가 정해진 배열)
 ```cpp
     int alphaArray[26] = {0, }; //0으로 초기화
-    int graph[100][100] = {0, }; //2차원 배열도 가능
 ```
 
 ```cpp
@@ -317,5 +316,18 @@ private:
 ```cpp
   atoi(s.c_str()) //s가 문자열이면 0 수이면 그 수를 return
                   //그 수가 0인 경우가 있기 때문에 완벽히 하려한다면 == '0' 판단 먼저
+```
+{% endraw %}
+
+## tuple
+{% raw %}
+```cpp
+#include <tuple>
+
+tuple<int, int, int> tup = make_tuple(1, 2, 3);
+//tuple<int, int, int> tup(1, 2, 3); 도 가능
+cout << get<0>(tup); //1
+cout << get<1>(tup); //2
+cout << get<2>(tup); //3
 ```
 {% endraw %}
