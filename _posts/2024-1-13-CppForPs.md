@@ -146,7 +146,7 @@ map<int, int> m;
   m.count(a); //a있으면 1, 없으면 0 반환
 ```
 {% endraw %}
-## unordered_map
+## unordered_map (hash table)
 {% raw %}
 ```cpp
 #include <iostream>
@@ -329,5 +329,21 @@ tuple<int, int, int> tup = make_tuple(1, 2, 3);
 cout << get<0>(tup); //1
 cout << get<1>(tup); //2
 cout << get<2>(tup); //3
+```
+{% endraw %}
+
+## deque (양쪽 삽입, 제거)
+{% raw %}
+```cpp
+#include <deque>
+
+deque<int> q;
+q.push_back(a);
+q.push_front(b);
+//b a
+q.pop_back();
+//b
+q.pop_front();
+//empty
 ```
 {% endraw %}
