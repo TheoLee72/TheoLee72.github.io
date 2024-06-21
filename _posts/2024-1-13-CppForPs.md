@@ -136,6 +136,18 @@ int main(){
 
 ```
 {% endraw %}
+## 연산자 오버로딩
+{% raw %}
+```cpp
+struct Compare {
+    bool operator()(int a, int b) const {
+        if(abs(a) > abs(b)) return true;
+        else if(abs(a) == abs(b)) return a > b;
+        else return false;
+    }
+};
+```
+{% endraw %}
 
 ## map
 {% raw %}
