@@ -21,7 +21,7 @@ math: true
 지금부터는 가중치 그래프다.  
 - nonnegative
 - directed
-- greedy
+- greedy  
 vertex다 min-queue에 넣어두고 v.d최소 인 것 계속 뽑으면서  
 S에 넣고 연결된 edge모두 relaxation시킨다.  
 
