@@ -152,6 +152,7 @@ struct Compare {
 ## map
 {% raw %}
 ```cpp
+//map은 key로 정렬을 시켜 저장한다.(기본 오름차순 operator있음)
 map<int, int> m;
   m[n]++; //map m에서 key = n인 원소의 value++ or 만약 key = n인 원소 없으면 생성 후. 0 + 1 = 1을 value로 입력
   m[n] = 1; //map m에서 key = n인 원소의 value = 1 or 만약 없으면 생성후 1을 value로 입력
